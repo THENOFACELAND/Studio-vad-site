@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | STUDIO VAD COACHING</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="index.html">
+        <img class="logoVAD" src="assets/img/logoVAD.png" alt="Logo Studio VAD Coaching">
+        <div class="title">
+          <strong>STUDIO VAD COACHING</strong>
+          <span>Berck-sur-Mer</span>
+        </div>
+      </a>
+
+      <nav class="navlinks" aria-label="Navigation principale">
+        <a data-nav href="index.html">Accueil</a>
+        <a data-nav href="forfaits.html">Forfaits</a>
+        <a data-nav href="photos.html">Photos</a>
+        <a data-nav href="calculateur.html">Calculateur</a>
+        <a data-nav href="contact.html">Contact</a>
+      </nav>
+
+      <div class="socialLinks" aria-label="Réseaux sociaux">
+        <a href="https://www.instagram.com/studio_vad_coaching/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Studio VAD Coaching">
+          <img src="assets/img/ig.png" alt="Instagram">
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61576528120782" target="_blank" rel="noopener noreferrer" aria-label="Facebook Studio VAD Coaching">
+          <img src="assets/img/fb.png" alt="Facebook">
+        </a>
+        <a href="https://wa.me/33638322421" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Studio VAD Coaching">
+          <img src="assets/img/WA.png" alt="WhatsApp">
+        </a>
+      </div>
+
+      <button class="burger" data-burger aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobilepanel" data-mobilepanel>
+      <a data-nav href="index.html">Accueil</a>
+      <a data-nav href="forfaits.html">Forfaits</a>
+      <a data-nav href="photos.html">Photos</a>
+      <a data-nav href="calculateur.html">Calculateur</a>
+      <a data-nav href="contact.html">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container">
+    <span class="badge reveal">📩 Contact</span>
+    <h2 class="reveal">Parlons de ton objectif</h2>
+    <p id="formSuccess" class="badge reveal" style="display:none; margin-bottom:1rem;">Message envoyé. Merci, on revient vers toi rapidement.</p>
+    <div class="grid3 contactMainGrid">
+      <div class="card reveal contactFormCard">
+        <form action="https://formsubmit.co/contact@studiovadcoaching.fr" method="POST">
+          <input type="hidden" name="_subject" value="Nouveau message - Studio VAD Coaching">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://studiovadcoaching.fr/contact.html?sent=1">
+          <input type="text" name="_honey" style="display:none">
+          <div class="formGrid">
+            <div class="field">
+              <label>Nom</label>
+              <input type="text" name="nom" placeholder="Ton nom" required />
+            </div>
+            <div class="field">
+              <label>Téléphone</label>
+              <input type="tel" name="telephone" placeholder="06..." />
+            </div>
+            <div class="field">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="email@exemple.com" required />
+            </div>
+            <div class="field">
+              <label>Objectif</label>
+              <select name="objectif">
+                <option>Boxe Thaï</option>
+                <option>Remise en forme</option>
+                <option>Perte de poids</option>
+                <option>Réathlétisation</option>
+                <option>Prise de masse</option>
+                <option>Bien-être</option>
+                <option>Préparation physique</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field" style="margin-top:.9rem;">
+            <label>Message</label>
+            <textarea name="message" placeholder="Dis-moi ton objectif, ton niveau, ta dispo, et ton point de départ." required></textarea>
+          </div>
+
+          <div style="margin-top:1rem; display:flex; gap:.8rem; flex-wrap:wrap;">
+            <button class="btn gold" type="submit">
+              Envoyer
+            </button>
+            <a class="btn" href="forfaits.html">Voir les forfaits</a>
+          </div>
+        </form>
+      </div>
+
+      <div class="card reveal">
+        <h3>Infos</h3>
+        <p>📍 14 rue de l'ancien Calvaire - Berck sur mer</p>
+        <div style="height:.6rem"></div>
+        <p>📞 06.38.32.24.21</p>
+      </div>
+    </div>
+
+    <div class="mapSection reveal">
+      <h3>📍 Nous situer</h3>
+
+      <a class="btn gold" target="_blank" rel="noopener"
+         href="https://www.google.com/maps?q=14+Rue+de+l'Ancien+Calvaire+62600+Berck">
+        Ouvrir dans Google Maps
+      </a>
+
+      <div class="mapContainer">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2542.978429717622!2d1.561995576827107!3d50.40423959068963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47dddc1ead9ec6c1%3A0x73939827edd823f1!2s14%20Rue%20de%20l&#39;Ancien%20Calvaire%2C%2062600%20Berck!5e0!3m2!1sfr!2sfr!4v1771920415211!5m2!1sfr!2sfr"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footerGrid">
+    <div class="small">copyright@Stutio Vad Coaching 2026</div>
+    <div></div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("sent") === "1") {
+    const success = document.getElementById("formSuccess");
+    if (success) success.style.display = "inline-flex";
+  }
+
+  const y = document.getElementById("y");
+  if (y) y.textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+
+
