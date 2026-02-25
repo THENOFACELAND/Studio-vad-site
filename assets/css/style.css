@@ -400,6 +400,10 @@ body > header{
   max-width: 70ch;
 }
 
+.section p.sub.goldText{
+  color: var(--gold2);
+}
+
 .grid3{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
@@ -472,6 +476,26 @@ body > header{
   background: rgba(7,7,10,.65);
   color: var(--text);
   outline: none;
+}
+.field select{
+  background: #07070a;
+  color: var(--text);
+}
+.field select option{
+  background: #07070a;
+  color: var(--text);
+}
+.field select option:hover{
+  background: var(--gold);
+  color: #000;
+}
+.field select option:focus{
+  background: var(--gold);
+  color: #000;
+}
+.field select option:checked{
+  background: #07070a;
+  color: var(--text);
 }
 .field textarea{ min-height: 120px; resize: vertical; }
 .field input:focus, .field select:focus, .field textarea:focus{
@@ -648,7 +672,6 @@ body > header{
   padding: .35rem 1.25rem;
   text-transform: uppercase;
 }
-
 
 .tarifsGrid{
   display:grid;
@@ -1006,6 +1029,41 @@ body > header{
   .mapContainer iframe{
     height: 320px;
   }
+}
+
+.successModal{
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(7,7,10,.72);
+  backdrop-filter: blur(3px);
+  z-index: 120;
+}
+
+.successModal.is-open{
+  display: flex;
+}
+
+.successModalCard{
+  width: min(560px, 100%);
+  border: 1px solid rgba(212,175,55,.28);
+  border-radius: 18px;
+  background: rgba(15,16,24,.95);
+  box-shadow: 0 22px 60px rgba(0,0,0,.45);
+  padding: 1.15rem;
+}
+
+.successModalCard h3{
+  margin: 0 0 .45rem;
+  color: var(--gold2);
+}
+
+.successModalCard p{
+  margin: 0 0 1rem;
+  color: var(--muted);
 }
 
 

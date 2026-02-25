@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fiche du pratiquant | STUDIO VAD COACHING</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="index.html">
+        <img class="logoVAD" src="assets/img/logoVAD.png" alt="Logo Studio VAD Coaching">
+        <div class="title">
+          <strong>STUDIO VAD COACHING</strong>
+          <span>Berck-sur-Mer</span>
+        </div>
+      </a>
+
+      <nav class="navlinks" aria-label="Navigation principale">
+        <a data-nav href="index.html">Accueil</a>
+        <a data-nav href="forfaits.html">Forfaits</a>
+        <a data-nav href="photos.html">Photos</a>
+        <a data-nav href="calculateur.html">Calculateur</a>
+        <a data-nav href="contact.html">Contact</a>
+      </nav>
+
+      <div class="socialLinks" aria-label="Réseaux sociaux">
+        <a href="https://www.instagram.com/studio_vad_coaching/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Studio VAD Coaching">
+          <img src="assets/img/ig.png" alt="Instagram">
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61576528120782" target="_blank" rel="noopener noreferrer" aria-label="Facebook Studio VAD Coaching">
+          <img src="assets/img/fb.png" alt="Facebook">
+        </a>
+        <a href="https://wa.me/33638322421" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Studio VAD Coaching">
+          <img src="assets/img/WA.png" alt="WhatsApp">
+        </a>
+      </div>
+
+      <button class="burger" data-burger aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobilepanel" data-mobilepanel>
+      <a data-nav href="index.html">Accueil</a>
+      <a data-nav href="forfaits.html">Forfaits</a>
+      <a data-nav href="photos.html">Photos</a>
+      <a data-nav href="calculateur.html">Calculateur</a>
+      <a data-nav href="contact.html">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container">
+    <h2 class="reveal">FICHE DU PRATIQUANT</h2>
+    <p class="sub reveal goldText">Cette fiche est à remplir si vous souhaitez un suivi personnalisé, elle nous sert à mieux vous connaître.</p>
+
+    <div class="card reveal">
+      <form id="ficheForm" action="https://formsubmit.co/contact@studiovadcoaching.fr" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_subject" value="Fiche du pratiquant - Studio VAD Coaching">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" id="ficheNext" name="_next" value="">
+        <input type="text" name="_honey" style="display:none">
+        <input type="file" id="pdfAttachment" name="attachment" accept="application/pdf" style="display:none">
+        <div class="formGrid">
+          <div class="field">
+            <label>Nom</label>
+            <input type="text" name="nom" required />
+          </div>
+          <div class="field">
+            <label>Prénom</label>
+            <input type="text" name="prenom" required />
+          </div>
+          <div class="field">
+            <label>Âge</label>
+            <input type="number" name="age" min="1" />
+          </div>
+          <div class="field">
+            <label>Numéro de téléphone</label>
+            <input type="tel" name="telephone" />
+          </div>
+          <div class="field">
+            <label>Mail</label>
+            <input type="email" name="email" />
+          </div>
+          <div class="field">
+            <label>Sexe</label>
+            <select name="sexe">
+              <option>Homme</option>
+              <option>Femme</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Poids</label>
+            <input type="text" name="poids" />
+          </div>
+          <div class="field">
+            <label>Taille</label>
+            <input type="text" name="taille" />
+          </div>
+          <div class="field">
+            <label>Profession</label>
+            <input type="text" name="profession" />
+          </div>
+          <div class="field">
+            <label>Choix de l'objectif</label>
+            <select name="objectif">
+              <option>Cours collectifs</option>
+              <option>Remise en forme</option>
+              <option>Initiation boxe thaï</option>
+              <option>Perte de poids</option>
+              <option>Réathlétisation</option>
+              <option>Prise de masse</option>
+              <option>Bien-être</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Passé sportif</label>
+            <input type="text" name="passe_sportif" />
+          </div>
+          <div class="field">
+            <label>Sport actuel</label>
+            <input type="text" name="sport_actuel" />
+          </div>
+          <div class="field">
+            <label>Nombre de séances par semaine</label>
+            <input type="number" name="seances_semaine" min="0" />
+          </div>
+          <div class="field">
+            <label>Consommation d'eau par jour</label>
+            <select name="eau_par_jour">
+              <option>-1L</option>
+              <option>1L</option>
+              <option>2L</option>
+              <option>+2L</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Nombre de repas par jour</label>
+            <input type="number" name="repas_par_jour" min="0" />
+          </div>
+          <div class="field">
+            <label>Sommeil</label>
+            <input type="text" name="sommeil" />
+          </div>
+        </div>
+
+        <div class="formGrid" style="margin-top:.9rem;">
+          <div class="field">
+            <label>Alcool</label>
+            <div style="display:flex; gap:1rem; margin-top:.35rem;">
+              <label><input type="radio" name="alcool" value="oui"> Oui</label>
+              <label><input type="radio" name="alcool" value="non"> Non</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Tabac</label>
+            <div style="display:flex; gap:1rem; margin-top:.35rem;">
+              <label><input type="radio" name="tabac" value="oui"> Oui</label>
+              <label><input type="radio" name="tabac" value="non"> Non</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="field" style="margin-top:.9rem;">
+          <label>Pathologies</label>
+          <textarea name="pathologies"></textarea>
+        </div>
+        <div class="field" style="margin-top:.9rem;">
+          <label>Traitement médicamenteux</label>
+          <textarea name="traitement_medicamenteux"></textarea>
+        </div>
+        <div class="field" style="margin-top:.9rem;">
+          <label>Questions</label>
+          <textarea name="questions"></textarea>
+        </div>
+
+        <div style="margin-top:1rem; display:flex; gap:.8rem; flex-wrap:wrap;">
+          <button class="btn gold" id="ficheSubmit" type="submit">Envoyer</button>
+          <a class="btn" href="contact.html">Retour contact</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footerGrid">
+    <div class="small">copyright@Studio Vad Coaching 2026</div>
+    <div></div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script>
+  const ficheForm = document.getElementById("ficheForm");
+  const ficheSubmit = document.getElementById("ficheSubmit");
+  const pdfAttachment = document.getElementById("pdfAttachment");
+  const ficheNext = document.getElementById("ficheNext");
+  const basePath = window.location.pathname.replace(/[^/]*$/, "");
+
+  if (ficheNext) {
+    ficheNext.value = `${window.location.origin}${basePath}merci.html`;
+  }
+
+  function getValue(formData, key) {
+    const v = formData.get(key);
+    return (v || "").toString().trim() || "-";
+  }
+
+  async function loadLogoDataUrl() {
+    try {
+      const logoUrl = `${window.location.origin}${basePath}assets/img/logoVAD.png`;
+      const response = await fetch(logoUrl, { cache: "no-store" });
+      if (!response.ok) return null;
+      const blob = await response.blob();
+      const rawDataUrl = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(String(reader.result || ""));
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+      });
+
+      return await new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => {
+          const maxSide = 140;
+          const ratio = img.naturalWidth / img.naturalHeight;
+          let w = maxSide;
+          let h = w / ratio;
+          if (h > maxSide) {
+            h = maxSide;
+            w = h * ratio;
+          }
+
+          const canvas = document.createElement("canvas");
+          canvas.width = Math.max(1, Math.round(w));
+          canvas.height = Math.max(1, Math.round(h));
+          const ctx = canvas.getContext("2d");
+          if (!ctx) {
+            resolve(rawDataUrl);
+            return;
+          }
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          resolve(canvas.toDataURL("image/jpeg", 0.62));
+        };
+        img.onerror = () => resolve(rawDataUrl);
+        img.src = rawDataUrl;
+      });
+    } catch (_) {
+      return null;
+    }
+  }
+
+  async function getImageSize(dataUrl) {
+    return await new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => resolve({ width: img.naturalWidth || 1, height: img.naturalHeight || 1 });
+      img.onerror = () => resolve({ width: 1, height: 1 });
+      img.src = dataUrl;
+    });
+  }
+
+  function paintPdfPage(doc, logoDataUrl) {
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+
+    doc.setFillColor(7, 7, 10);
+    doc.rect(0, 0, pageWidth, pageHeight, "F");
+
+    doc.setDrawColor(212, 175, 55);
+    doc.setLineWidth(1);
+    doc.line(40, 74, pageWidth - 40, 74);
+
+    // logo drawn in a fixed box while preserving original aspect ratio
+    if (logoDataUrl && paintPdfPage.logoSize) {
+      const maxW = 42;
+      const maxH = 42;
+      const ratio = paintPdfPage.logoSize.width / paintPdfPage.logoSize.height;
+      let drawW = maxW;
+      let drawH = drawW / ratio;
+      if (drawH > maxH) {
+        drawH = maxH;
+        drawW = drawH * ratio;
+      }
+      doc.addImage(logoDataUrl, "JPEG", 40, 24, drawW, drawH);
+    }
+
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(16);
+    doc.setTextColor(241, 210, 122);
+    doc.text("FICHE DU PRATIQUANT", 86, 40);
+
+    doc.setFontSize(11);
+    doc.setTextColor(233, 233, 238);
+    doc.text("STUDIO VAD COACHING", 86, 58);
+
+    return 96;
+  }
+
+  async function buildPdfFile(formData) {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: "pt", format: "a4", compress: true, putOnlyUsedFonts: true });
+    const logoDataUrl = await loadLogoDataUrl();
+    paintPdfPage.logoSize = logoDataUrl ? await getImageSize(logoDataUrl) : null;
+    const left = 40;
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+    const labelWidth = 190;
+    const valueX = left + labelWidth + 8;
+    const valueMaxWidth = pageWidth - valueX - 40;
+    const bottomLimit = pageHeight - 40;
+    let y = paintPdfPage(doc, logoDataUrl);
+
+    const lines = [
+      ["Nom", getValue(formData, "nom")],
+      ["Prenom", getValue(formData, "prenom")],
+      ["Age", getValue(formData, "age")],
+      ["Numero de telephone", getValue(formData, "telephone")],
+      ["Mail", getValue(formData, "email")],
+      ["Sexe", getValue(formData, "sexe")],
+      ["Poids", getValue(formData, "poids")],
+      ["Taille", getValue(formData, "taille")],
+      ["Profession", getValue(formData, "profession")],
+      ["Choix de l'objectif", getValue(formData, "objectif")],
+      ["Passe sportif", getValue(formData, "passe_sportif")],
+      ["Sport actuel", getValue(formData, "sport_actuel")],
+      ["Nombre de seances par semaine", getValue(formData, "seances_semaine")],
+      ["Consommation d'eau par jour", getValue(formData, "eau_par_jour")],
+      ["Nombre de repas par jour", getValue(formData, "repas_par_jour")],
+      ["Sommeil", getValue(formData, "sommeil")],
+      ["Alcool", getValue(formData, "alcool")],
+      ["Tabac", getValue(formData, "tabac")],
+      ["Pathologies", getValue(formData, "pathologies")],
+      ["Traitement medicamenteux", getValue(formData, "traitement_medicamenteux")],
+      ["Questions", getValue(formData, "questions")]
+    ];
+
+    lines.forEach(([label, value]) => {
+      const wrappedValue = doc.splitTextToSize(value, valueMaxWidth);
+      const rowHeight = Math.max(18, wrappedValue.length * 14) + 6;
+
+      if (y + rowHeight > bottomLimit) {
+        doc.addPage();
+        y = paintPdfPage(doc, logoDataUrl);
+      }
+
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(11);
+      doc.setTextColor(241, 210, 122);
+      doc.text(`${label} :`, left, y);
+
+      doc.setFont("helvetica", "normal");
+      doc.setTextColor(233, 233, 238);
+      doc.text(wrappedValue, valueX, y);
+
+      y += rowHeight;
+    });
+
+    const pdfBlob = doc.output("blob");
+    return new File([pdfBlob], "fiche-pratiquant.pdf", { type: "application/pdf" });
+  }
+
+  if (ficheForm && ficheSubmit && pdfAttachment) {
+    ficheForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      try {
+        ficheSubmit.disabled = true;
+        ficheSubmit.textContent = "Generation du PDF...";
+
+        const formData = new FormData(ficheForm);
+        const pdfFile = await buildPdfFile(formData);
+        const dt = new DataTransfer();
+        dt.items.add(pdfFile);
+        pdfAttachment.files = dt.files;
+
+        ficheSubmit.textContent = "Envoi...";
+        ficheForm.submit();
+      } catch (err) {
+        ficheSubmit.disabled = false;
+        ficheSubmit.textContent = "Envoyer";
+        const details = [
+          err && err.status ? `status: ${err.status}` : "",
+          err && err.text ? `message: ${err.text}` : "",
+          err && err.message ? `detail: ${err.message}` : ""
+        ].filter(Boolean).join(" | ");
+        alert(`Envoi impossible pour le moment.${details ? `\n${details}` : ""}`);
+        console.error("Form submission error:", err);
+      }
+    });
+  }
+</script>
+</body>
+</html>
+
+

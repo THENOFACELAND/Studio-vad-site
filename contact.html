@@ -58,13 +58,12 @@
   <div class="container">
     <span class="badge reveal">📩 Contact</span>
     <h2 class="reveal">Parlons de ton objectif</h2>
-    <p id="formSuccess" class="badge reveal" style="display:none; margin-bottom:1rem;">Message envoyé. Merci, on revient vers toi rapidement.</p>
     <div class="grid3 contactMainGrid">
       <div class="card reveal contactFormCard">
         <form action="https://formsubmit.co/contact@studiovadcoaching.fr" method="POST">
           <input type="hidden" name="_subject" value="Nouveau message - Studio VAD Coaching">
           <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://thenofaceland.github.io/Studio-vad-site/contact.html?sent=1">
+          <input type="hidden" name="_next" id="formNextUrl" value="">
           <input type="text" name="_honey" style="display:none">
           <div class="formGrid">
             <div class="field">
@@ -103,6 +102,7 @@
               Envoyer
             </button>
             <a class="btn" href="forfaits.html">Voir les forfaits</a>
+            <a class="btn" href="fiche-pratiquant.html">Fiche du pratiquant</a>
           </div>
         </form>
       </div>
@@ -135,25 +135,64 @@
   </div>
 </main>
 
+<div class="successModal" id="successModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+  <div class="successModalCard">
+    <h3 id="successTitle">Message envoyé</h3>
+    <p>Merci, votre demande a bien été transmise. Nous revenons vers vous rapidement.</p>
+    <button type="button" class="btn gold" id="successClose">Fermer</button>
+  </div>
+</div>
+
 <footer class="footer">
   <div class="container footerGrid">
-    <div class="small">copyright@Stutio Vad Coaching 2026</div>
+    <div class="small">copyright@Studio Vad Coaching 2026</div>
     <div></div>
   </div>
 </footer>
 
 <script src="assets/js/main.js"></script>
 <script>
+  const nextField = document.getElementById("formNextUrl");
+  if (nextField) nextField.value = `${window.location.origin}${window.location.pathname}?sent=1`;
+
+  function closeSuccessModal() {
+    const modal = document.getElementById("successModal");
+    if (!modal) return;
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+  }
+
   const params = new URLSearchParams(window.location.search);
   if (params.get("sent") === "1") {
-    const success = document.getElementById("formSuccess");
-    if (success) success.style.display = "inline-flex";
+    const modal = document.getElementById("successModal");
+    if (modal) {
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+    }
+    window.history.replaceState({}, "", window.location.pathname);
   }
+
+  const closeBtn = document.getElementById("successClose");
+  if (closeBtn) closeBtn.addEventListener("click", closeSuccessModal);
+
+  const modalEl = document.getElementById("successModal");
+  if (modalEl) {
+    modalEl.addEventListener("click", (e) => {
+      if (e.target === modalEl) closeSuccessModal();
+    });
+  }
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeSuccessModal();
+  });
 
   const y = document.getElementById("y");
   if (y) y.textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
+
+
+
 
 
