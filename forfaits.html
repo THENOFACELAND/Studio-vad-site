@@ -61,7 +61,29 @@
       <h2 class="tarifsTitle">NOS TARIFS</h2>
     </div>
 
-    <section class="tarifsGrid reveal">
+    <section class="tarifs3DSection reveal" data-tarifs-3d>
+      <button class="tarifsNav prev" type="button" data-tarifs-prev aria-label="Forfait precedent">&#8249;</button>
+      <div class="tarifs3DViewport">
+        <div class="tarifs3DTrack" data-tarifs-track>
+
+      <article class="tarifCard" data-glow="magenta">
+        <span class="badgePopular badgeNouveau">NOUVEAU</span>
+        <header class="tarifTop">
+          <div class="tarifName">COURS COLLECTIFS</div>
+          <div class="tarifPrice">
+            <span class="priceMain">15&euro;</span>
+            <span class="priceSub">/ cours</span>
+          </div>
+        </header>
+
+        <div class="tarifDivider"></div>
+
+        <ul class="tarifList">
+          <li class="ok">6 à 8 personnes maximum, sur réservation</li>
+        </ul>
+
+        <div class="tarifBottom"></div>
+      </article>
 
       <article class="tarifCard" data-glow="blue">
         <header class="tarifTop">
@@ -101,7 +123,8 @@
         <div class="tarifBottom"></div>
       </article>
 
-      <article class="tarifCard" data-glow="silver">
+      <article class="tarifCard featured" data-glow="silver">
+        <span class="badgePopular">POPULAIRE</span>
         <header class="tarifTop">
           <div class="tarifName">FORMULE SILVER</div>
           <div class="tarifPrice">
@@ -122,8 +145,7 @@
         <div class="tarifBottom"></div>
       </article>
 
-      <article class="tarifCard featured" data-glow="gold">
-        <span class="badgePopular">POPULAIRE</span>
+      <article class="tarifCard" data-glow="gold">
         <header class="tarifTop">
           <div class="tarifName">FORMULE GOLD</div>
           <div class="tarifPrice">
@@ -164,6 +186,10 @@
         <div class="tarifBottom"></div>
       </article>
 
+        </div>
+      </div>
+      <button class="tarifsNav next" type="button" data-tarifs-next aria-label="Forfait suivant">&#8250;</button>
+      <div class="tarifsDots" data-tarifs-dots aria-label="Navigation des forfaits"></div>
     </section>
 
     <div class="reveal" style="margin-top:1.4rem; text-align:center;">
@@ -174,7 +200,7 @@
 
 <footer class="footer">
   <div class="container footerGrid">
-    <div class="small">copyright@Stutio Vad Coaching 2026</div>
+    <div class="small">copyright@Studio Vad Coaching 2026</div>
     <div></div>
   </div>
 </footer>
@@ -182,4 +208,5 @@
 <script src="assets/js/main.js"></script>
 </body>
 </html>
+
 

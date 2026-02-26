@@ -79,6 +79,99 @@ carousels.forEach((carousel) => {
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) start();
 });
 
+// Carousel 3D - forfaits
+const tarifs3D = document.querySelector('[data-tarifs-3d]');
+if (tarifs3D) {
+  const track = tarifs3D.querySelector('[data-tarifs-track]');
+  const cards = track ? Array.from(track.querySelectorAll('.tarifCard')) : [];
+  const prevBtn = tarifs3D.querySelector('[data-tarifs-prev]');
+  const nextBtn = tarifs3D.querySelector('[data-tarifs-next]');
+  const dotsWrap = tarifs3D.querySelector('[data-tarifs-dots]');
+  const classNames = ['is-active', 'is-prev', 'is-next', 'is-far-prev', 'is-far-next', 'is-hidden'];
+  let index = 0;
+  let touchStartX = null;
+
+  const mod = (n, m) => ((n % m) + m) % m;
+
+  const relativeOffset = (i) => {
+    let diff = i - index;
+    const half = Math.floor(cards.length / 2);
+    if (diff > half) diff -= cards.length;
+    if (diff < -half) diff += cards.length;
+    return diff;
+  };
+
+  const setClasses = (card, offset) => {
+    card.classList.remove(...classNames);
+    if (offset === 0) card.classList.add('is-active');
+    else if (offset === -1) card.classList.add('is-prev');
+    else if (offset === 1) card.classList.add('is-next');
+    else if (offset === -2) card.classList.add('is-far-prev');
+    else if (offset === 2) card.classList.add('is-far-next');
+    else card.classList.add('is-hidden');
+  };
+
+  const updateDots = () => {
+    if (!dotsWrap) return;
+    Array.from(dotsWrap.children).forEach((dot, i) => {
+      dot.classList.toggle('is-active', i === index);
+      dot.setAttribute('aria-current', i === index ? 'true' : 'false');
+    });
+  };
+
+  const render = () => {
+    cards.forEach((card, i) => {
+      const offset = relativeOffset(i);
+      setClasses(card, offset);
+      card.setAttribute('aria-hidden', offset === 0 ? 'false' : 'true');
+    });
+    updateDots();
+  };
+
+  const goTo = (nextIndex) => {
+    if (!cards.length) return;
+    index = mod(nextIndex, cards.length);
+    render();
+  };
+
+  const go = (step) => goTo(index + step);
+
+  if (dotsWrap) {
+    cards.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'tarifsDot';
+      dot.setAttribute('aria-label', `Forfait ${i + 1}`);
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+  }
+
+  prevBtn?.addEventListener('click', () => go(-1));
+  nextBtn?.addEventListener('click', () => go(1));
+
+  cards.forEach((card, i) => {
+    card.addEventListener('click', () => {
+      if (i !== index) goTo(i);
+    });
+  });
+
+  const viewport = tarifs3D.querySelector('.tarifs3DViewport');
+  viewport?.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0]?.clientX ?? null;
+  }, { passive: true });
+  viewport?.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0]?.clientX ?? null;
+    if (touchStartX == null || endX == null) return;
+    const delta = endX - touchStartX;
+    if (Math.abs(delta) < 40) return;
+    if (delta > 0) go(-1);
+    else go(1);
+  });
+
+  render();
+}
+
 // =========================
 // Calculateur (TDEE + macros)
 // =========================
