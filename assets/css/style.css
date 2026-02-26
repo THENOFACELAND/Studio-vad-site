@@ -680,6 +680,133 @@ body > header{
   align-items: stretch;
 }
 
+.tarifs3DSection{
+  position: relative;
+  min-height: 520px;
+  padding: .85rem 3rem 2.1rem;
+}
+
+.tarifs3DViewport{
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  perspective: 1300px;
+}
+
+.tarifs3DTrack{
+  position: relative;
+  min-height: 520px;
+}
+
+.tarifs3DSection .tarifCard{
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: min(390px, calc(100% - 2rem));
+  background: rgba(15,16,24,.9);
+  border-top-color: rgba(233,233,238,.24);
+  box-shadow:
+    inset 0 1px 0 rgba(233,233,238,.2),
+    0 16px 50px rgba(0,0,0,.35);
+  transition: transform .55s cubic-bezier(.2,.75,.2,1), opacity .45s ease, filter .45s ease;
+  transform-style: preserve-3d;
+  transform-origin: 50% 0;
+  pointer-events: none;
+}
+
+.tarifs3DSection .tarifCard.is-active{
+  transform: translateX(-50%) translateZ(85px) scale(1.06);
+  opacity: 1;
+  background: #0f1018;
+  filter: blur(0);
+  z-index: 7;
+  pointer-events: auto;
+}
+
+.tarifs3DSection .tarifCard.is-prev{
+  transform: translateX(calc(-50% - 265px)) rotateY(25deg) scale(.9);
+  opacity: .9;
+  filter: blur(1.8px);
+  z-index: 5;
+  pointer-events: auto;
+}
+
+.tarifs3DSection .tarifCard.is-next{
+  transform: translateX(calc(-50% + 265px)) rotateY(-25deg) scale(.9);
+  opacity: .9;
+  filter: blur(1.8px);
+  z-index: 5;
+  pointer-events: auto;
+}
+
+.tarifs3DSection .tarifCard.is-far-prev{
+  transform: translateX(calc(-50% - 480px)) rotateY(30deg) scale(.78);
+  opacity: .58;
+  filter: blur(4px);
+  z-index: 3;
+}
+
+.tarifs3DSection .tarifCard.is-far-next{
+  transform: translateX(calc(-50% + 480px)) rotateY(-30deg) scale(.78);
+  opacity: .58;
+  filter: blur(4px);
+  z-index: 3;
+}
+
+.tarifs3DSection .tarifCard.is-hidden{
+  transform: translateX(-50%) scale(.72);
+  opacity: 0;
+  filter: blur(6px);
+  z-index: 1;
+}
+
+.tarifsNav{
+  position: absolute;
+  top: 42%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(212,175,55,.24);
+  background: rgba(15,16,24,.7);
+  color: var(--gold2);
+  font-size: 1.35rem;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.tarifsNav:hover{
+  border-color: rgba(212,175,55,.5);
+}
+
+.tarifsNav.prev{ left: .65rem; }
+.tarifsNav.next{ right: .65rem; }
+
+.tarifsDots{
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+}
+
+.tarifsDot{
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(233,233,238,.35);
+  background: rgba(233,233,238,.2);
+  cursor: pointer;
+}
+
+.tarifsDot.is-active{
+  width: 23px;
+  background: var(--gold2);
+  border-color: var(--gold2);
+}
+
 .tarifCard{
   position: relative;
   border-radius: 18px;
@@ -690,6 +817,31 @@ body > header{
   min-height: 440px;
   display:flex;
   flex-direction: column;
+}
+
+.tarifCard.tarifCardWide{
+  grid-column: 1 / -1;
+  min-height: 230px;
+}
+
+.tarifCard.tarifCardWide .tarifTop{
+  padding: .85rem 1.1rem .6rem;
+}
+
+.tarifCard.tarifCardWide .priceMain{
+  font-size: 2rem;
+}
+
+.tarifCard.tarifCardWide .tarifList{
+  padding: .45rem 1.1rem .7rem;
+}
+
+.tarifCard.tarifCardWide .tarifList li{
+  padding: .55rem 0;
+}
+
+.tarifCard.tarifCardWide .tarifBottom{
+  height: 18px;
 }
 
 /* Effet “lueur” autour */
@@ -854,6 +1006,30 @@ body > header{
     rgba(96,165,250,.22), transparent 60%);
 }
 
+.tarifCard[data-glow="magenta"]{
+  border-color: rgba(236,72,153,.28);
+  box-shadow:
+    0 18px 55px rgba(0,0,0,.40),
+    0 0 0 1px rgba(236,72,153,.10);
+}
+.tarifCard[data-glow="magenta"]::before{
+  background: radial-gradient(900px 300px at 50% 0%,
+    rgba(236,72,153,.34), transparent 60%);
+}
+
+/* Keep the front card contour clearly visible in 3D mode */
+.tarifs3DSection .tarifCard.is-active{
+  border-top-color: rgba(233,233,238,.46);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.28),
+    0 16px 50px rgba(0,0,0,.35);
+}
+
+.tarifs3DSection .tarifCard.is-prev,
+.tarifs3DSection .tarifCard.is-next{
+  border-top-color: rgba(233,233,238,.28);
+}
+
 /* Carte “mise en avant” (GOLD) */
 .tarifCard.featured{
   border-color: rgba(212,175,55,.45);
@@ -866,7 +1042,7 @@ body > header{
 .tarifCard{
   transition: transform .18s ease, border-color .18s ease;
 }
-.tarifCard:hover{
+.tarifsGrid .tarifCard:hover{
   transform: translateY(-6px);
   border-color: rgba(233,233,238,.18);
 }
@@ -878,9 +1054,63 @@ body > header{
 @media (max-width: 900px){
   .tarifsGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .tarifCard{ min-height: 420px; }
+
+  .tarifs3DSection{
+    padding: .75rem 1.8rem 1.8rem;
+    min-height: 510px;
+  }
+  .tarifs3DViewport,
+  .tarifs3DTrack{
+    min-height: 488px;
+  }
+  .tarifs3DSection .tarifCard{
+    width: min(360px, calc(100% - 1.5rem));
+  }
+  .tarifs3DSection .tarifCard.is-prev{
+    transform: translateX(calc(-50% - 205px)) rotateY(22deg) scale(.86);
+  }
+  .tarifs3DSection .tarifCard.is-next{
+    transform: translateX(calc(-50% + 205px)) rotateY(-22deg) scale(.86);
+  }
+  .tarifs3DSection .tarifCard.is-far-prev,
+  .tarifs3DSection .tarifCard.is-far-next{
+    opacity: 0;
+    pointer-events: none;
+  }
+  .tarifsNav{
+    width: 38px;
+    height: 38px;
+    font-size: 1.2rem;
+  }
 }
 @media (max-width: 600px){
   .tarifsGrid{ grid-template-columns: 1fr; }
+
+  .tarifs3DSection{
+    padding: .7rem .5rem 1.5rem;
+    min-height: 490px;
+  }
+  .tarifs3DViewport,
+  .tarifs3DTrack{
+    min-height: 458px;
+  }
+  .tarifs3DSection .tarifCard{
+    width: calc(100% - 1rem);
+  }
+  .tarifs3DSection .tarifCard.is-prev{
+    transform: translateX(calc(-50% - 118px)) rotateY(16deg) scale(.82);
+    opacity: .52;
+    filter: blur(3px);
+  }
+  .tarifs3DSection .tarifCard.is-next{
+    transform: translateX(calc(-50% + 118px)) rotateY(-16deg) scale(.82);
+    opacity: .52;
+    filter: blur(3px);
+  }
+  .tarifsNav{
+    width: 34px;
+    height: 34px;
+  }
 }
 
 
@@ -921,6 +1151,9 @@ body > header{
   position: absolute;
   top: 14px;
   right: -52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   background: linear-gradient(135deg, #d4af37, #f1d27a);
   color: #000;
@@ -932,6 +1165,16 @@ body > header{
   letter-spacing: .08em;
   box-shadow: 0 10px 25px rgba(0,0,0,.45);
   z-index: 9999;
+  text-align: center;
+  line-height: 1;
+}
+
+.badgeNouveau{
+  top: 14px;
+  right: -34px;
+  width: 144px;
+  min-width: 0;
+  padding: .34rem 0;
 }
 
 
