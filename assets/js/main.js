@@ -87,6 +87,7 @@ if (tarifs3D) {
   const prevBtn = tarifs3D.querySelector('[data-tarifs-prev]');
   const nextBtn = tarifs3D.querySelector('[data-tarifs-next]');
   const dotsWrap = tarifs3D.querySelector('[data-tarifs-dots]');
+  tarifs3D.classList.add('is-ready');
   const classNames = ['is-active', 'is-prev', 'is-next', 'is-far-prev', 'is-far-next', 'is-hidden'];
   let index = 0;
   let touchStartX = null;
