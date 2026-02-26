@@ -445,6 +445,9 @@ body > header{
 .footer .small{
   font-size: .72rem;
 }
+.footerCredit{
+  text-align: right;
+}
 .footerGrid{
   display:grid;
   grid-template-columns: 1.2fr .8fr;
