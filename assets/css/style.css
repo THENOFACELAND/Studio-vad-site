@@ -394,6 +394,14 @@ body > header{
   margin: 0 0 .65rem 0;
   font-size: clamp(1.4rem, 2.2vw, 2rem);
 }
+
+.galerieTitle{
+  font-family: "Saira Stencil One", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  text-shadow: 0 0 16px rgba(212,175,55,.16);
+}
 .section p.sub{
   margin: 0 0 1.2rem 0;
   color: var(--muted);
@@ -1180,6 +1188,21 @@ body > header{
 
 .cardNew{
   margin-bottom: 1.5rem;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.cardNew .icon{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cardNew p{
+  max-width: 58ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Badge POPULAIRE style bandeau */
